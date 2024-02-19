@@ -1,0 +1,15 @@
+{
+    "manifest_version": 2,
+    "name": "NotOnPrime",
+    "version": "1.0",
+
+    "description": "This extension visibly flags on Google search results a title offered by a streaming service that may require an additional payment, on top of the standard subcription fee.",
+
+    "content_scripts": [
+        {
+            "matches": ["*://*.google.com/search?*"],
+            "js": ["content.js"],
+            "run_at": "document_idle"
+        }    
+    ]
+}
