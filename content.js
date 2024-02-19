@@ -30,10 +30,10 @@ if (linkToStreamingService.includes("primevideo.com")) {
     
     let streamText = streamingInfo.firstElementChild.firstChild.childNodes[5];
     
-    if (streamText.textContent.includes("Premium subscription")) {
-        streamText.textContent = "Not included with Prime"
+    if (streamText.textContent.includes("Premium subscription") || streamText.textContent.includes("Extra Prime Channel")) {
+        streamText.textContent = "Extra Prime Channel"
     } else {
-        streamText.textContent = "Included with "
+        streamText.textContent = "Included with ";
         let imageUrl = browser.runtime.getURL('assets/prime-logo.png');
         console.log(imageUrl);
         streamText.insertAdjacentHTML('beforeend',
