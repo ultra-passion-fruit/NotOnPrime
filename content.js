@@ -17,30 +17,38 @@
 // Cow card
 // class = "TQc1id IVvPP Jb0Zif rhstc4"
 
+// https://www.pikpng.com/pngvi/wwmTTR_required-books-graphic-design-clipart/
 
-const streamingInfo = Array.from(document.getElementsByClassName('fOYFme'))[0];
 
-const linkToStreamingService = streamingInfo.firstElementChild.href;
+function runExtension() {
 
-console.log(streamingInfo);
+    let streamingInfo = Array.from(document.getElementsByClassName('fOYFme'))[0];
 
-console.log(linkToStreamingService);
+    console.log(streamingInfo);
 
-if (linkToStreamingService.includes("primevideo.com")) {
+    let linkToStreamingService = streamingInfo?.firstElementChild.href;
     
-    let streamText = streamingInfo.firstElementChild.firstChild.childNodes[5];
+    console.log(linkToStreamingService);
     
-    if (streamText.textContent.includes("Premium subscription") || streamText.textContent.includes("Extra Prime Channel")) {
-        streamText.textContent = "Extra Prime Channel"
-    } else {
-        streamText.textContent = "Included with ";
-        let imageUrl = browser.runtime.getURL('assets/prime-logo.png');
-        console.log(imageUrl);
-        streamText.insertAdjacentHTML('beforeend',
-        `<img src="${imageUrl}" alt="logo" style="width: 45px; vertical-align: middle; margin-bottom: 3px">`)
+    if (linkToStreamingService?.includes("primevideo.com")) {
+        
+        let streamText = streamingInfo?.firstElementChild.firstChild.childNodes[5];
+        
+        console.log(streamText.textContent);
+    
+        if (streamText.textContent.includes("Premium subscription") || streamText.textContent.includes("Extra Prime Channel")) {
+            streamText.textContent = "Extra Prime Channel"
+        } else {
+            streamText.textContent = "Included with ";
+            let imageUrl = browser.runtime.getURL('assets/prime-logo.png');
+            console.log(imageUrl);
+            streamText.insertAdjacentHTML('beforeend',
+            `<img src="${imageUrl}" alt="logo" style="width: 45px; vertical-align: middle; margin-bottom: 3px">`)
+        }
+    
+        console.log(streamText);
+        
     }
-
-    console.log(streamText);
-    
 }
 
+runExtension();

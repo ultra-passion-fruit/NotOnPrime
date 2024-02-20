@@ -2,6 +2,10 @@
     "manifest_version": 2,
     "name": "NotOnPrime",
     "version": "1.0",
+    "permissions": [
+        "webNavigation",
+        "*://*.google.com/*"
+    ],
 
     "description": "This extension visibly flags on Google search results a title offered by a streaming service that may require an additional payment, on top of the standard subcription fee.",
 
@@ -12,6 +16,11 @@
             "run_at": "document_idle"
         }    
     ],
+
+    "background": {
+        "scripts": ["background-script.js"],
+        "persistent": false
+    },
 
     "web_accessible_resources": [
         "assets/prime-logo.png"
